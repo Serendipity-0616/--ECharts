@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据可视化</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- 头部盒子 -->
+    <header>
+        <h1>数据可视化-ECharts</h1>
+        <div class="showTime"></div>
+    </header>
+
+    <!-- 主体 -->
+    <section class="mainbox">
+        <div class="column">
+            <div class="panel bar">
+                <h2>柱形图-就业行业 2019-2020</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel line">
+                <h2>折线图-人员变化 <a href="javascript:;">2020</a><a href="javascript:;">2021</a></h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>            
+            <div class="panel pie">
+                <h2>饼形图-年龄分布</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="on">
+                <div class="on-hd">
+                    <ul>
+                        <li>9090000</li>
+                        <li>3231233</li>
+                    </ul>
+                </div>
+                <div class="on-bd">
+                    <ul>
+                        <li>前端需求人数</li>
+                        <li>市场供应人数</li>
+                    </ul>
+                </div>
+                <div class="map">
+                    <div class="map1"></div>
+                    <div class="map2"></div>
+                    <div class="map3"></div>
+                    <div class="chart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="panel bar2">
+                <h2>柱形图-技能掌握</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel line2">
+                <h2>折线图-播放量</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel pie2">
+                <h2>饼形图-地区分布</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    var t = null;
+    t = setTimeout(time,1000);//开始运行
+    function time(){
+    clearTimeout(t);//清除定时器
+    var date = new Date(); //DATE() 函数返回日期或日期/时间表达式的日期部分。
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var day = date.getDate(); //返回月份的某一天：
+    var week = date.getDay(); //返回一周的某一天数字。
+    var hour = date.getHours();//获取时
+    var branch =date.getMinutes();//获取分
+    var second =date.getSeconds();//获取秒
+    // dateObject 所指的星期中的某一天，使用本地时间。返回值是 0（周日） 到 6（周六） 之间的一个整数。
+
+    var arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+    document.querySelector(".showTime").innerHTML = "当前时间： " + year + "年" + (month + 1) + "月" + day + "日 " + arr[week]
+    + hour +'时'+ branch + '分' + second + '秒 '+ amorpm();
+    t=setTimeout(time,1000);
+    //innerHTML返回的是标签内的 html内容，包含html标签。
+    // innerText返回的是标签内的文本值，不包含html标签。
+    function amorpm(){
+      var date=new Date();
+      return date.getHours()<12?"AM":"PM";
+     }
+    }
+</script>
+<script src="js/flexible.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/china.js"></script>
+<script src="js/myMap.js"></script>
+</html>
